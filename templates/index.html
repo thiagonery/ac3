@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}" >
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/globalstyle.css')}}" >
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+        <title>Cadastro de Aluno</title>
+    </head>
+        <body style="background-color:floralwhite">
+            <div class="container">
+            <header>
+            <h1 class="card-header text-center font-weight-bold text-uppercase py-4">Lista de alunos Cadastrados</h1>
+            <a href="/add"><img class="img fade1" src="{{ url_for('static', filename='images/add-icon.png')}}"></a>
+            </header>
+            <table class="table table-bordered table-responsive-md text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nome Aluno</th>
+                        <th>Email do Aluno</th>
+                        <th>Logradouro</th>
+                        <th>Numero</th>
+                        <th>CEP</th>
+                        <th>Complemento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in alunos %}
+                    <tr>
+                        <td>{{a.nomeAluno}}</td>
+                        <td>{{a.emailAluno}}</td>
+                        <td>{{a.logradouro}}</td>
+                        <td>{{a.numero}}</td>
+                        <td>{{a.cep}}</td>
+                        <td>{{a.complemento}}</td>
+
+                        <td>
+                            <a href="/edit/{{a.ra}}"><img class="img fade1" src="{{ url_for('static', filename='images/edit-icon.png')}}"></a>
+                            <a href="/delete/{{a.ra}}"><img class="img fade1" src="{{ url_for('static', filename='images/delete-icon.png')}}"></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </body>
+</html>

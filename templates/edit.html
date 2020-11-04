@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}" >
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/globalstyle.css')}}" >
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+        <title>Cadastro de Aluno</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Editar Aluno {{aluno.nomeAluno}}</h1>
+            <form action="/edit/{{aluno.id}}" method="POST">
+                <table class="table table-striped" >
+                    <tr>
+                        <td>Editar RA:</td>
+                        <td><input type="text" name="ra" value="{{aluno.ra}}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Editar Nome:</td>
+                        <td><input type="text" name="nomeAluno" value="{{aluno.nomeAluno}}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Editar E-mail:</td>
+                        <td><input type="text" name="emailAluno" value="{{aluno.emailAluno}}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Editar Logradouro:</td>
+                        <td><input type="text" name="logradouro" value="{{aluno.logradouro}}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Editar Numero:</td>
+                        <td><input type="text" name="numero" value="{{aluno.numero}}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Editar CEP:</td>
+                        <td><input type="text" name="cep" value="{{aluno.cep}}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Digite Complemento:</td>
+                        <td><input type="text" name="complemento" value="{{aluno.complemento}}" /></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                        <input type="submit" value="Enviar"/>
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
